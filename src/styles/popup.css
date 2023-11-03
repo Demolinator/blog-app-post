@@ -1,0 +1,42 @@
+/* Add this CSS to your stylesheets */
+.popup-container {
+    position: fixed;
+    top: 50%;
+    right: 20px; /* Adjust the right value as needed */
+    transform: translateY(-50%);
+    background-color: #00a1e4;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 16px;
+    z-index: 1000;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-size: 18px;
+    animation: slideIn 0.5s ease-in-out; /* Add a slide-in animation */
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-50%) translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(-50%) translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .popup-close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+  }
+  

@@ -1,0 +1,274 @@
+/* profile.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white; /* Set the background to white */
+  border: 1px solid #ddd; /* Optional: Add a border */
+  border-radius: 8px; /* Optional: Add some border radius for a rounded appearance */
+}
+
+.profile-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: black; /* Adjust the text color */
+  margin-bottom: 16px;
+}
+
+.profile-info {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: black; /* Adjust the text color */
+}
+  
+  .appointments-heading {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .appointment-item {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column; /* Display content in a column */
+  }
+  
+  .appointment-details {
+    font-size: 16px;
+    margin: 4px 0; /* Add some margin for spacing */
+    word-break: break-word; /* Allow content to break into multiple lines if needed */
+  }
+  
+  
+  .logo {
+    max-width: 100px;
+    margin-right: 20px;
+  }
+
+
+  .blog-form {
+    position: relative;
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .blog-form .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .blog-form .form-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+  }
+  
+  .blog-form .form-header .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .blog-form .form-header .close-button:hover {
+    color: #ff0000; /* Change the color on hover */
+  }
+  
+  .blog-form input[type="text"],
+  .blog-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .blog-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .blog-form button:hover {
+    background-color: #0056b3;
+  }
+  
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #555; /* Dark gray color for the close button */
+}
+
+.create-blog-button-initial {
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s; /* Add a smooth transition effect on hover */
+}
+
+.create-blog-button-initial:hover {
+  background-color: #0056b3; /* Button background color on hover */
+}
+
+/* CSS for the "Edit" and "Delete" buttons */
+.blog-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #0056b3;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the overlay is on top of other content */
+}
+
+.overlay-content {
+  background: #fff;
+  width: 70%; /* Set the width to 70% of the viewport */
+  height: auto; /* Make the height auto to adjust to content */
+  max-width: 500px; /* Limit the maximum width for readability */
+  padding: 30px; /* Increase padding for more space inside the overlay */
+  border-radius: 8px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+}
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #555; /* Dark gray color for the close button */
+}
+
+.overlay-content p {
+  font-size: 18px;
+  color: #333; /* Text color for the message */
+  margin: 20px 0;
+}
+
+/* Add a cool animation when the overlay appears */
+.overlay-content {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.confirm-delete {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.confirm-delete p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.confirm-delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.confirm-delete-button:hover {
+  background-color: #c82333;
+}
+
+.cancel-delete-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cancel-delete-button:hover {
+  background-color: #0056b3;
+}
+
+.user-image {
+  width: 120px; /* Set the width and height of the profile image */
+  height: 120px;
+  border: 4px solid #007bff; /* Add a border around the image */
+  border-radius: 50%; /* Make the image a circle */
+  overflow: hidden; /* Hide any content that goes beyond the circle */
+  margin-right: 20px; /* Add some margin to separate it from other elements */
+}
+
+.user-image img {
+  width: 100%; /* Make sure the image takes the full circle space */
+  height: 100%;
+  object-fit: cover; /* Scale and crop the image to fit the circle */
+}
+

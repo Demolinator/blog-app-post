@@ -1,0 +1,406 @@
+href="
+
+
+
+      <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                <div class="flex items-center lg:order-2">
+
+                    <Link href="/auth/login" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</Link> */}
+                     <button onClick={signOut}
+                        class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log out</button>
+                    <Link href="/profile" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Profile</Link> 
+
+                </div>
+            </div>
+
+
+            import { getSession } from "next-auth/react";
+import React, { useState } from 'react';
+
+export default function Profile({ session }) {
+
+  const [blogTitle, setBlogTitle] = useState('');
+  const [blogBody, setBlogBody] = useState('');
+  const [publishedBlogs, setPublishedBlogs] = useState([]);
+
+  const handlePostBlog = async () => {
+      // Perform validation checks here
+
+      // Add the new blog to the list
+      const newBlog = { title: blogTitle, body: blogBody };
+      setPublishedBlogs([...publishedBlogs, newBlog]);
+
+      // Clear the input fields
+      setBlogTitle('');
+      setBlogBody('');
+  };
+  
+  return (
+    <>
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        {/* ... Your existing JSX */}
+      </div>
+      <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md mx-auto bg-white rounded-md shadow-md overflow-hidden">
+          <div className="px-4 py-5 sm:p-6">
+            <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>
+            <input
+              type="text"
+              placeholder="Blog Title"
+              value={blogTitle}
+              onChange={(e) => setBlogTitle(e.target.value)}
+              className="block w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+            <textarea
+              placeholder="Blog Body"
+              value={blogBody}
+              onChange={(e) => setBlogBody(e.target.value)}
+              className="block w-full mt-4 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+            <button
+              onClick={handlePostBlog}
+              className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:ring focus:ring-opacity-50"
+            >
+              Publish Blog
+            </button>
+          </div>
+        </div>
+        {publishedBlogs.map((blog, index) => (
+          <div key={index} className="mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow m-2">
+            <div className="p-4 flex">
+              <div className="flex-grow">
+                <h3 className="text-xl font-medium text-gray-900">{blog.title}</h3>
+                <p className="mt-1 text-gray-500">{blog.body}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
+}
+
+
+ <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          Your dashboard Page
+        </h2>
+        <p>Welcome, {session.user.name}!</p>
+      </div>
+    </div>
+
+
+
+
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          Your dashboard Page
+        </h2>
+        <p>Welcome, {session.user.name}!</p>
+      </div>
+    </div>
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        {/* ... Your existing JSX */}
+      </div>
+      <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md mx-auto bg-white rounded-md shadow-md overflow-hidden">
+          <div className="px-4 py-5 sm:p-6">
+            <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>
+            <input
+              type="text"
+              placeholder="Blog Title"
+              value={blogTitle}
+              onChange={(e) => setBlogTitle(e.target.value)}
+              className="block w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+            <textarea
+              placeholder="Blog Body"
+              value={blogBody}
+              onChange={(e) => setBlogBody(e.target.value)}
+              className="block w-full mt-4 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+            <button
+              onClick={handlePostBlog}
+              className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:ring focus:ring-opacity-50"
+            >
+              Publish Blog
+            </button>
+          </div>
+        </div>
+        {publishedBlogs.map((blog, index) => (
+          <div key={index} className="mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow m-2">
+            <div className="p-4 flex">
+              <div className="flex-grow">
+                <h3 className="text-xl font-medium text-gray-900">
+                  {editIndex === index ? (
+                    <input
+                      type="text"
+                      value={blogTitle}
+                      onChange={(e) => setBlogTitle(e.target.value)}
+                      className="border rounded px-2 py-1"
+                    />
+                  ) : (
+                    blog.title
+                  )}
+                </h3>
+                <p className="mt-1 text-gray-500">
+                  {editIndex === index ? (
+                    <textarea
+                      value={blogBody}
+                      onChange={(e) => setBlogBody(e.target.value)}
+                      className="border rounded px-2 py-1"
+                    />
+                  ) : (
+                    blog.body
+                  )}
+                </p>
+                <div className="mt-2 flex justify-end">
+                  {editIndex === index ? (
+                    <>
+                      <button className="text-green-600 hover:underline" onClick={() => handleSaveEdit(index)}>
+                        Save
+                      </button>
+                      <button className="text-gray-600 hover:underline ml-4" onClick={handleCancelEdit}>
+                        Cancel
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button className="text-blue-600 hover:underline" onClick={() => handleEditBlog(index)}>
+                        Edit
+                      </button>
+                      <button className="text-red-600 hover:underline ml-4" onClick={() => handleDeleteBlog(index)}>
+                        Delete
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+
+
+      const handlePostBlog = async () => {
+    // Validation checks here
+
+    // Add the new blog to the list
+    const newBlog = { title: blogTitle, body: blogBody };
+    setPublishedBlogs([...publishedBlogs, newBlog]);
+
+    // Clear the input fields
+    setBlogTitle('');
+    setBlogBody('');
+  };
+
+  const handleEditBlog = (index) => {
+    // Set the index to indicate that the user is editing this blog
+    setEditIndex(index);
+    setBlogTitle(publishedBlogs[index].title);
+    setBlogBody(publishedBlogs[index].body);
+  };
+
+  const handleSaveEdit = (index) => {
+    // Save the edited blog content
+    const updatedBlogs = [...publishedBlogs];
+    updatedBlogs[index] = { title: blogTitle, body: blogBody };
+    setPublishedBlogs(updatedBlogs);
+
+    // Clear the input fields and reset the edit index
+    setBlogTitle('');
+    setBlogBody('');
+    setEditIndex(-1);
+  };
+
+  const handleCancelEdit = () => {
+    // Clear the input fields and reset the edit index
+    setBlogTitle('');
+    setBlogBody('');
+    setEditIndex(-1);
+  };
+
+  const handleDeleteBlog = (index) => {
+    // Remove the blog from the publishedBlogs array
+    const updatedBlogs = publishedBlogs.filter((_, i) => i !== index);
+    setPublishedBlogs(updatedBlogs);
+  };
+
+
+
+  main file ////
+
+
+  import { getSession } from "next-auth/react";
+import React, { useState } from 'react';
+
+export default function Profile({ session }) {
+
+  const [blogTitle, setBlogTitle] = useState('');
+  const [blogBody, setBlogBody] = useState('');
+  const [publishedBlogs, setPublishedBlogs] = useState([]);
+  const [editIndex, setEditIndex] = useState(-1);
+
+  const handlePostBlog = async () => {
+    // Validation checks here
+
+    // Add the new blog to the list
+    const newBlog = { title: blogTitle, body: blogBody };
+    setPublishedBlogs([...publishedBlogs, newBlog]);
+
+    // Clear the input fields
+    setBlogTitle('');
+    setBlogBody('');
+  };
+
+  const handleEditBlog = (index) => {
+    setEditIndex(index);
+    // Populate the editing fields with the current blog data
+    setBlogTitle(publishedBlogs[index].title);
+    setBlogBody(publishedBlogs[index].body);
+  };
+
+  const handleSaveEdit = (index) => {
+    // Save the edited blog content
+    const updatedBlogs = [...publishedBlogs];
+    updatedBlogs[index] = { title: blogTitle, body: blogBody };
+    setPublishedBlogs(updatedBlogs);
+
+    // Clear the input fields and reset the edit index
+    setBlogTitle('');
+    setBlogBody('');
+    setEditIndex(-1);
+  };
+
+  const handleCancelEdit = () => {
+    // Clear the input fields and reset the edit index
+    setBlogTitle('');
+    setBlogBody('');
+    setEditIndex(-1);
+  };
+
+  const handleDeleteBlog = (index) => {
+    // Remove the blog from the publishedBlogs array
+    const updatedBlogs = publishedBlogs.filter((_, i) => i !== index);
+    setPublishedBlogs(updatedBlogs);
+  };
+
+  return (
+    <>
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        {/* ... Your existing JSX */}
+      </div>
+      <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md mx-auto bg-white rounded-md shadow-md overflow-hidden">
+          <div className="px-4 py-5 sm:p-6">
+            <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>
+            <input
+              type="text"
+              placeholder="Blog Title"
+              value={blogTitle}
+              onChange={(e) => setBlogTitle(e.target.value)}
+              className="block w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+            <textarea
+              placeholder="Blog Body"
+              value={blogBody}
+              onChange={(e) => setBlogBody(e.target.value)}
+              className="block w-full mt-4 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+            <button
+              onClick={handlePostBlog}
+              className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:ring focus:ring-opacity-50"
+            >
+              Publish Blog
+            </button>
+          </div>
+        </div>
+        {publishedBlogs.map((blog, index) => (
+          <div key={index} className="mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow m-2">
+            <div className="p-4 flex">
+              <div className="flex-grow">
+                {editIndex === index ? (
+                  <>
+                    <input
+                      type="text"
+                      value={blogTitle}
+                      onChange={(e) => setBlogTitle(e.target.value)}
+                      className="border rounded px-2 py-1 mb-2 w-full"
+                      placeholder="Edit Title"
+                    />
+                    <textarea
+                      value={blogBody}
+                      onChange={(e) => setBlogBody(e.target.value)}
+                      className="border rounded px-2 py-1 w-full"
+                      placeholder="Edit Body"
+                    />
+                    <div className="mt-2 flex justify-end">
+                      <button className="text-green-600 hover:underline" onClick={() => handleSaveEdit(index)}>
+                        Save
+                      </button>
+                      <button className="text-gray-600 hover:underline ml-4" onClick={handleCancelEdit}>
+                        Cancel
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="text-xl font-medium text-gray-900">{blog.title}</h3>
+                    <p className="mt-1 text-gray-500">{blog.body}</p>
+                    <div className="mt-2 flex justify-end">
+                      <button className="text-blue-600 hover:underline" onClick={() => handleEditBlog(index)}>
+                        Edit
+                      </button>
+                      <button className="text-red-600 hover:underline ml-4" onClick={() => handleDeleteBlog(index)}>
+                        Delete
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
+}

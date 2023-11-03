@@ -1,0 +1,105 @@
+/* Form Styles */
+.form-wrapper {
+    max-width: 400px;
+    margin: 20px auto; /* Add margin at the top and bottom */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  
+  .form-wrapper h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .form-control label {
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    color: #666;
+    transition: all 0.2s;
+    pointer-events: none;
+  }
+  
+  .form-control input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .form-control input:focus + label, .form-control input:valid + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #007BFF;
+  }
+  
+  .form-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .form-help a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+  
+  .form-help input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* Submit Button Styles */
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Link Styles */
+  a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Logo Styles */
+  nav {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  nav img {
+    max-width: 100px; /* Adjust the width as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%; /* Create a circular profile picture effect */
+    border: 2px solid #007BFF; /* Add a border for the profile picture */
+  }

@@ -1,0 +1,44 @@
+header {
+    background-color: #000068;
+    color: #fff;
+    padding: 5px; /* Reduce the header padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 18px; /* Decrease the font size for a smaller logo */
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: ellipsis;
+    max-width: 180px; /* Adjust the max width as needed */
+  }
+  
+  .button-container {
+    text-align: center;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 8px 16px; /* Add padding to the top and reduce button padding */
+    font-size: 14px; /* Decrease the font size for smaller buttons */
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #1c1c84;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    margin: 3px;
+    margin-top: 10px;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
