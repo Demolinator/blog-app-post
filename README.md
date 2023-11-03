@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-you can take a demo here: https://blog-app-post-flax.vercel.app/
+you can take a demo here: https: https://blog-app-post-zeta.vercel.app/
 
 First, run the development server:
 
